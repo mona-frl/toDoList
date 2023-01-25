@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const port = process.env.PORT || 3000;
 //lodash
 const _ = require('lodash');
 
@@ -150,7 +150,5 @@ app.post('/delete', (req, res) => {
 
 
 
-
-app.listen(process.env.PORT || port, () => {
-    console.log(`Listening to the port ${port}`);
-})
+app.listen(port, () => 
+console.log(`Example app listening on port ${port}!`));
