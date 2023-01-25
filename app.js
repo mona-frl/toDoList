@@ -1,10 +1,14 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 //lodash
 const _ = require('lodash');
 
+//dotenv
+require("dotenv").config()
+const login = process.env.LOGIN;
+const password = process.env.PASSWORD;
 //db 
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
@@ -19,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 //array of items to the list of to do list 
-mongoose.connect("mongodb://localhost:27017/todolistDB");
+mongoose.connect(`mongodb+srv://${login}:${password}@cluster0.vicar3r.mongodb.net/toDoListDB`);
 
 const itemSchema = {
     name: String
@@ -145,6 +149,9 @@ app.post('/delete', (req, res) => {
 });
 
 
-app.listen(port, () => {
-    console.log('Listening on port ' + port);
-});
+
+
+
+app.listen(process.env.PORT || port, () => {
+    console.log(`Listening to the port ${port}`);
+})
