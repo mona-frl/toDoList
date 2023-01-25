@@ -51,33 +51,45 @@ p {
   font-size: 20px;
   font-weight: 300;
   color: #00204a;
+  width: 313px;
 }
 
-form {
+.add {
   text-align: center;
   margin-left: 20px;
+  border-style: none;
 }
 
 button {
-  min-height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  border-color: transparent;
-  background-color: #A683E3;
-  color: #fff;
+  color: #A683E3;
   font-size: 40px;
-  border-width: 0;
+  box-sizing: unset;
+  border-style: none;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+
+}
+
+.btn {
+  font-size: 14px;
+  color: #a683e3a6;
+}
+
+.delete {
+  margin-right: 12px;
 }
 
 input[type="text"] {
   text-align: center;
-  height: 60px;
   top: 10px;
   border: none;
   background: transparent;
   font-size: 20px;
   font-weight: 200;
   width: 313px;
+  font-family: 'Sofia Sans', sans-serif;
+
 }
 
 input[type="text"]:focus {
@@ -85,10 +97,6 @@ input[type="text"]:focus {
   box-shadow: inset 0 -3px 0 0 #A683E3;
 }
 
-::placeholder {
-  color: grey;
-  opacity: 1;
-}
 
 footer {
   color: white;

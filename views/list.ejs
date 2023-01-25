@@ -8,19 +8,25 @@
 
     <div class="box">
         <!-- creates a for loop to add a new item every time the user submits a request -->
-        <% for (var i=0; i < newListItems.length; i++) { %>
+        <% newListItems.forEach( (item)=> { %>
             <div class="item">
                 <input type="checkbox">
                 <p>
-                    <%= newListItems[i] %>
+                    <%= item.name %>
                 </p>
+                <form action="/delete" method="post">
+                    <input type="hidden" name="listTitle" value="<%= listTitle %>">
+                    <button type="submit" name="delete" value="<%= item._id %>" class="btn delete" title="Delete"><i
+                            class="fa-solid fa-trash"></i></button>
+                </form>
             </div>
-            <% } %>
-                <form action="/" method="post" class="item">
+            <% }) %>
+                <form action="/" method="post" class="item add">
                     <input type="text" name="newItem" placeholder="New Item" autocomplete="off" required>
-                    <button type="submit" name="list" value="<%= listTitle %>" >+</button>
+                    <button type="submit" name="list" value="<%= listTitle %>" title="Add"><i
+                            class="fa-solid fa-circle-plus"></i></button>
                 </form>
     </div>
-</body>
+    </body>
 
-<%- include('footer') -%>
+    <%- include('footer') -%>
